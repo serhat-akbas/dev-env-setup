@@ -1,0 +1,9 @@
+{
+    "editor.fontSize": 14,
+    "editor.rulers": [
+        {
+            "column": 79,
+            "color": "#00ff00"
+        },
+    ]
+}
