@@ -1,4 +1,5 @@
 # dev-env-setup
+## Essentials
 * Install Python3.9 <br />
 [Python 3.9.9](https://www.python.org/downloads/release/python-399/)
 
@@ -36,3 +37,9 @@ clip < ~/.ssh/id_ed25519.pub
 ```
 Go to GitHub ([link](https://github.com/settings/keys)) and click on "New SSH Key" in settings (SSH and GPG keys). Paste the copied key into the field.
 For more information, refer to [GitHub docs on SSH.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+
+## Optional
+* Install Hyper terminal. Download from their [site.](https://hyper.is/)
+
+[Change default terminal to PowerShell.](https://dev.to/vanwildemeerschbrent/use-powershell-within-hyper-terminal-windows-51k3)
+
