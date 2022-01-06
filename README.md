@@ -1,6 +1,7 @@
 # dev-env-setup
 ## Essentials
-* Install Python3.9 <br />
+* <span style="color:green"> Install Python3.9 </span>
+
 [Python 3.9.9](https://www.python.org/downloads/release/python-399/)
 
 * Install Visual Studio Code. [Download the setup file from official page.](https://code.visualstudio.com/) After VSCode installation, add Python extension from marketplace.
@@ -21,7 +22,7 @@ This command installs the latest WSL Linux kernel version onto your machine. Ubu
 * Install Docker Desktop on Windows. [Official page.](https://docs.docker.com/desktop/windows/install/)
 
 * Install Git for Windows. After installation, there are some steps to go through in order to complete the setup.
-```
+```console
 git config --global user.name "serhat-akbas"
 git config --global user.email serhatakbas89@gmail.com
 git config --global core.editor "code --wait"
@@ -30,7 +31,7 @@ git config --list
 git config --list --global
 ```
 You also need to configure SSH in order to communicate with GitHub (pull, push etc. commands directly from terminal). Open git bash and type the following:
-```
+```console
 ssh-keygen -t ed25519 -C "serhatakbas89@gmail.com"
 ssh-add ~/.ssh/id_ed25519
 clip < ~/.ssh/id_ed25519.pub
@@ -38,6 +39,29 @@ clip < ~/.ssh/id_ed25519.pub
 Go to GitHub ([link](https://github.com/settings/keys)) and click on "New SSH Key" in settings (SSH and GPG keys). Paste the copied key into the field.
 For more information, refer to [GitHub docs on SSH.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
+* Install Python virtualenv.
+
+This one is needed to isolate the requirements of a project from the entire Python installation and packages. We use this to define only the required libraries and generate a requirements.txt file to be used in Dockerfile.
+```console
+pip install virtualenv
+virtualenv --version
+```
+Create a virtual environment in the your working directory:
+```console
+python3 -m venv ./.venv
+```
+Before activating the venv, you need to give permission to PowerShell scripts. Run PowerShell as administrator and execute the following command.
+```console
+set-executionpolicy remotesigned
+```
+Activate the venv:
+```console
+.\.venv\Scripts\Activate.ps1
+```
+Deactivate the venv:
+```console
+deactivate
+```
 ## Optional
 * Install Hyper terminal. Download from their [site.](https://hyper.is/)
 
