@@ -1,27 +1,60 @@
 # dev-env-setup
-## Essentials
-* <span style="color:green"> Install Python3.9 </span>
-
-[Python 3.9.9](https://www.python.org/downloads/release/python-399/)
-
-* Install Visual Studio Code. [Download the setup file from official page.](https://code.visualstudio.com/) After VSCode installation, add Python extension from marketplace.
-
-* Install PyTorch with the following command in shell (Stable 1.10.1 Cuda 11.3). Open PowerShell and type the following command:
+## Install Python and Setup a Virtual Environment -> [Python 3.9.9](https://www.python.org/downloads/release/python-399/) 
+### Install virtualenv  
+This one is needed to isolate the requirements of a project from the entire Python installation and packages. We use this to define only the required libraries and generate a requirements.txt file to be used in Dockerfile.
 ```console
-pip3 install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio===0.10.1+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+pip install virtualenv
+virtualenv --version
+```
+Go to your project folder and create virtualenv:
+```console
+python -m venv ./.venv
+```
+Before activating the venv, you need to give permission to PowerShell scripts. Run PowerShell as administrator and execute the following command.
+```console
+set-executionpolicy remotesigned
+```
+Activate the venv:
+```console
+.\.venv\Scripts\Activate.ps1
+```
+Deactivate the venv:
+```console
+deactivate
+```
+The required packages for RL development is listed below:
+```console
+pip install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio===0.10.1+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+pip install gym
+pip install stable-baselines3[extra]
+pip install fmpy
+pip install mysql-connector-python
 ```
 
-* Install Visual Studio Community edition. This one is needed for C/C++ libraries required by FMU simulations.
+## Install Visual Studio Code and Visual Studio Community Edition
+- VSCode -> [Download the setup file from official page.](https://code.visualstudio.com/) After VSCode installation, add Python extension from marketplace.
+- Install Visual Studio Community edition. This one is needed for C/C++ libraries required by FMU simulations. -> [Download](https://visualstudio.microsoft.com/vs/community/)
 
-* Install WSL (Ubuntu). This is needed for Docker on Windows.
+## Windows Subsystem for Linux (WSL)
+Install WSL (Ubuntu). This is needed for Docker on Windows.
 ```console
 wsl --install
 ```
 This command installs the latest WSL Linux kernel version onto your machine. Ubuntu is the default distribution of Linux. For the complete documentation, [visit official page.](https://docs.microsoft.com/en-us/windows/wsl/)
 
-* Install Docker Desktop on Windows. [Official page.](https://docs.docker.com/desktop/windows/install/)
+## Docker
+Install Docker Desktop on Windows. [Official page.](https://docs.docker.com/desktop/windows/install/)  
+Build and run the image:
+```console
+docker build -t project-ai-docker-image -f ./docker/Dockerfile .
+```
+Run the image:
+```console
+docker run -it --rm --gpus all project-ai-docker-image bash
+```
 
-* Install Git for Windows. After installation, there are some steps to go through in order to complete the setup.
+## Git and GitHub
+Install Git for Windows. After installation, there are some steps to go through in order to complete the setup.
 ```console
 git config --global user.name "serhat-akbas"
 git config --global user.email serhatakbas89@gmail.com
@@ -39,29 +72,6 @@ clip < ~/.ssh/id_ed25519.pub
 Go to GitHub ([link](https://github.com/settings/keys)) and click on "New SSH Key" in settings (SSH and GPG keys). Paste the copied key into the field.
 For more information, refer to [GitHub docs on SSH.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
-* Install Python virtualenv.
-
-This one is needed to isolate the requirements of a project from the entire Python installation and packages. We use this to define only the required libraries and generate a requirements.txt file to be used in Dockerfile.
-```console
-pip install virtualenv
-virtualenv --version
-```
-Create a virtual environment in the your working directory:
-```console
-python3 -m venv ./.venv
-```
-Before activating the venv, you need to give permission to PowerShell scripts. Run PowerShell as administrator and execute the following command.
-```console
-set-executionpolicy remotesigned
-```
-Activate the venv:
-```console
-.\.venv\Scripts\Activate.ps1
-```
-Deactivate the venv:
-```console
-deactivate
-```
 ## Optional
 * Install Hyper terminal. Download from their [site.](https://hyper.is/)
 
