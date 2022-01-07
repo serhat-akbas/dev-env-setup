@@ -18,9 +18,10 @@ Before activating the venv, you need to give permission to PowerShell scripts. R
 ```console
 set-executionpolicy remotesigned
 ```
-Activate the venv:
+Activate the venv and upgrade pip:
 ```console
 .\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
 ```
 Deactivate the venv:
 ```console
