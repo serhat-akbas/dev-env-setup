@@ -46,7 +46,7 @@ This command installs the latest WSL Linux kernel version onto your machine. Ubu
 Install Docker Desktop on Windows. [Official page.](https://docs.docker.com/desktop/windows/install/)  
 Build and run the image:
 ```console
-docker build -t project-ai-docker-image -f ./docker/Dockerfile .
+docker build -t project-ai-docker-image -f ./Dockerfile .
 ```
 Run the image:
 ```console
