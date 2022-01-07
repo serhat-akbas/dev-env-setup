@@ -1,7 +1,7 @@
 # dev-env-setup
-## Install Python and Setup a Virtual Environment -> [Python 3.9.9](https://www.python.org/downloads/release/python-399/) 
+## Install Python and Setup a Virtual Environment -> [Python 3.8.12](https://www.python.org/downloads/release/python-3812/) 
 ### Install virtualenv  
-This one is needed to isolate the requirements of a project from the entire Python installation and packages. We use this to define only the required libraries and generate a requirements.txt file to be used in Dockerfile.
+This one is needed to isolate the requirements of a project from the entire Python installation and packages.
 ```console
 pip install virtualenv
 virtualenv --version
@@ -35,24 +35,6 @@ pip install mysql-connector-python
 - VSCode -> [Download the setup file from official page.](https://code.visualstudio.com/) After VSCode installation, add Python extension from marketplace.
 - Install Visual Studio Community edition. This one is needed for C/C++ libraries required by FMU simulations. -> [Download](https://visualstudio.microsoft.com/vs/community/)
 
-## Windows Subsystem for Linux (WSL)
-Install WSL (Ubuntu). This is needed for Docker on Windows.
-```console
-wsl --install
-```
-This command installs the latest WSL Linux kernel version onto your machine. Ubuntu is the default distribution of Linux. For the complete documentation, [visit official page.](https://docs.microsoft.com/en-us/windows/wsl/)
-
-## Docker
-Install Docker Desktop on Windows. [Official page.](https://docs.docker.com/desktop/windows/install/)  
-Build and run the image:
-```console
-docker build -t project-ai-docker-image -f ./Dockerfile .
-```
-Run the image:
-```console
-docker run -it --rm --gpus all project-ai-docker-image bash
-```
-
 ## Git and GitHub
 Install Git for Windows. After installation, there are some steps to go through in order to complete the setup.
 ```console
@@ -72,8 +54,25 @@ clip < ~/.ssh/id_ed25519.pub
 Go to GitHub ([link](https://github.com/settings/keys)) and click on "New SSH Key" in settings (SSH and GPG keys). Paste the copied key into the field.
 For more information, refer to [GitHub docs on SSH.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
-## Optional
-* Install Hyper terminal. Download from their [site.](https://hyper.is/)
+# Optional
+## Windows Subsystem for Linux (WSL)
+Install WSL (Ubuntu). This is needed for Docker on Windows.
+```console
+wsl --install
+```
+This command installs the latest WSL Linux kernel version onto your machine. Ubuntu is the default distribution of Linux. For the complete documentation, [visit official page.](https://docs.microsoft.com/en-us/windows/wsl/)
+
+## Docker
+Install Docker Desktop on Windows. [Official page.](https://docs.docker.com/desktop/windows/install/)  
+Build and run the image:
+```console
+docker build -t project-ai-docker-image -f ./Dockerfile .
+```
+Run the image:
+```console
+docker run -it --rm --gpus all project-ai-docker-image bash
+```
+## Install Hyper terminal. Download from their [site.](https://hyper.is/)
 
 [Change default terminal to PowerShell.](https://dev.to/vanwildemeerschbrent/use-powershell-within-hyper-terminal-windows-51k3)
 
