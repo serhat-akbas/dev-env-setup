@@ -1,5 +1,5 @@
 # dev-env-setup
-## Install Python and Setup a Virtual Environment -> [Python 3.8.12](https://www.python.org/downloads/release/python-3812/) 
+## Install Python and Setup a Virtual Environment -> [Python 3.8.10](https://www.python.org/downloads/release/python-3810/) 
 ### Install virtualenv  
 This one is needed to isolate the requirements of a project from the entire Python installation and packages.
 ```console
