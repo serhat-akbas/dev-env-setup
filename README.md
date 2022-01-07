@@ -1,5 +1,9 @@
 # dev-env-setup
-## Install Python and Setup a Virtual Environment -> [Python 3.8.10](https://www.python.org/downloads/release/python-3810/) 
+## Install Python and Setup a Virtual Environment -> [Python 3.8.10](https://www.python.org/downloads/release/python-3810/)
+Upgrade pip:
+```console
+python -m pip install --upgrade pip
+```
 ### Install virtualenv  
 This one is needed to isolate the requirements of a project from the entire Python installation and packages.
 ```console
@@ -27,7 +31,7 @@ The required packages for RL development is listed below:
 pip install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio===0.10.1+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
 pip install gym
 pip install stable-baselines3[extra]
-pip install fmpy
+pip install fmpy[complete]
 pip install mysql-connector-python
 ```
 
