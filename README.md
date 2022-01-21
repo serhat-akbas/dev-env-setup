@@ -42,6 +42,7 @@ pip install mysql-connector-python
 
 ## Git and GitHub
 Install Git for Windows. After installation, there are some steps to go through in order to complete the setup.
+[Download for Windows](https://git-scm.com/download/win)
 ```console
 git config --global user.name "serhat-akbas"
 git config --global user.email serhatakbas89@gmail.com
